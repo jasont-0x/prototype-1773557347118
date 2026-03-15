@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Register your baby's communication needs" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Register your baby's communication needs</h1>
+    <p class="govuk-body">Get personalised guides and tips to help you understand and communicate with your baby.</p>
+    <p class="govuk-body">You will need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Your baby's age</li>
+      <li>Details about your communication concerns</li>
+      <li>Your email address</li>
+    </ul>
+    <p class="govuk-body">It takes around <strong>3 to 5 minutes</strong> to complete.</p>
+    {{ govukButton({
+      text: "Start now",
+      href: "/baby-age",
+      isStartButton: true
+    }) }}
+  </div>
+</div>
+{% endblock %}
