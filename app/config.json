@@ -1,0 +1,10 @@
+{
+  "serviceName": "Register your baby's communication needs",
+  "serviceUrl": "/start",
+  "useAuth": false,
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}
