@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "What is your main challenge with communication?" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }}
+
+    {% if errors and errors["current-challenges"] %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [{ text: errors["current-challenges"], href: "#current-challenges" }]
+    }) }}
+    {% endif %}
+
+    <form method="post" novalidate>
+    {{ govukRadios({
+      name: "current-challenges",
+      fieldset: {
+        legend: {
+          text: "What is your main challenge with communication?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      errorMessage: errors["current-challenges"] if errors else null,
+      value: data["current-challenges"],
+      items: [
+        { value: "understanding-what-different-cries-mean", text: "Understanding what different cries mean" },
+        { value: "knowing-when-your-baby-is-hungry-or-tired", text: "Knowing when your baby is hungry or tired" },
+        { value: "getting-your-baby-to-settle", text: "Getting your baby to settle" },
+        { value: "understanding-your-baby-s-body-language", text: "Understanding your baby's body language" }
+      ]
+    }) }}
+      {{ govukButton({ text: "Continue" }) }}
+    </form>
+
+  </div>
+</div>
+{% endblock %}
